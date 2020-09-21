@@ -10,11 +10,9 @@ class CustomUser(AbstractUser):
     user_type_data=((1,"HOD"),(2,"Staff"),(3,"Student"))
     user_type=models.CharField(default=1, choices=user_type_data,max_length=10)
 
-class Admin(models.Model):
+class AdminHOD(models.Model):
     id=models.AutoField(primary_key=True)
     admin=models.OneToOneField(CustomUser,on_delete=models.CASCADE)
-    email=models.CharField(max_length=255)
-    password=models.CharField(max_length=255)
     createdAt=models.DateTimeField(auto_now_add=True)
     updatedAt=models.DateTimeField(auto_now_add=True)
     objects=models.Manager()
@@ -22,9 +20,6 @@ class Admin(models.Model):
 class Staffs(models.Model):
     id=models.AutoField(primary_key=True)
     admin=models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    name=models.CharField(max_length=255)
-    email=models.CharField(max_length=255)
-    password=models.CharField(max_length=255)
     address=models.TextField()
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now_add=True)
@@ -49,7 +44,6 @@ class Subjects(models.Model):
 class Students(models.Model):
     id=models.AutoField(primary_key=True)
     admin=models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    name=models.CharField(max_length=255)
     gender=models.CharField(max_length=255)
     profile_pic=models.FileField()
     address=models.TextField()
