@@ -151,3 +151,5 @@ def save_user_profile(sender, instance, **kwargs):
             instance.staffs.save()
             if instance.user_type==3:
                 instance.students.save()
+
+                //mrplusultra
