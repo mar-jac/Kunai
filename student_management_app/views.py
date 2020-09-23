@@ -1,7 +1,6 @@
 import datetime
 
 from django.contrib.auth import authenticate, login, logout
-from django.core.checks import messages
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 
@@ -24,14 +23,12 @@ def doLogin(request):
         if user!=None:
             login(request,user)
             return HttpResponse("Email: " + request.POST.get("email") + " Password: " + request.POST.get("password"))
-        else:
-            messages.error(request, "Invalid Login Details")
-            return HttpResponseRedirect("/")
+        else
+            return HttpResponse("Invalid Login")
 
-
-def GetUserDetails(request):
+def GetUserDetails)(request):
     if request.user!=None:
-        return HttpResponse("User : "+request.user.email+" usertype : "+str(request.user.user_type))
+        return HttpResponse("User : "+request.user.email+" usertype : "request.user.user_type)
     else:
         return HttpResponse("Please Login First")
 
