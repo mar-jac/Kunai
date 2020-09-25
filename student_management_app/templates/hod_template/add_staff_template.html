@@ -49,6 +49,9 @@ Add Staff
                             {% if message.tags == 'error' %}
                             <div class="alert alert-danger" style="margin-top: 10px">{{ message }}</div>
                             {% endif %}
+                            {% if message.tags == 'success' %}
+                            <div class="alert alert-success" style="margin-top: 10px">{{ message }}</div>
+                                {% endif %}
                             {%  endfor %}
                       {%  endif %}
               </div>
