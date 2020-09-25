@@ -24,7 +24,7 @@ from student_management_system import settings
 urlpatterns = [
     path('demo',views.showDemoPage),
     path('admin/', admin.site.urls),
-    path('',views.ShowLoginPage),
+    path('',views.showLoginPage),
     path('get_user_details', views.GetUserDetails),
     path('logout_user', views.logout_user),
     path('doLogin', views.doLogin),
