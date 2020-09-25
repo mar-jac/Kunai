@@ -48,19 +48,22 @@
           </div>
         </div>
         <div class="row">
-          </div>
           <!-- /.col -->
           <div class="col-12">
             <button type="submit" class="btn btn-primary btn-block">Log In</button>
           </div>
+        </div>
+      <div class="row">
           {% if messages %}
           <div class="col-12">
             {% for message in messages %}
-            {% if message.tags== 'error' %}
-            <span class="alert alert-danger">{{ message }}</span>
-          </div>
+            {% if message.tags == 'error' %}
+            <div class="alert alert-danger" style="margin-top: 10px">{{ message }}</div>
           {% endif %}
-          <!-- /.col -->
+          {%  endfor %}
+          </div>
+      {%  endif %}
+      </div>
       </form>
 
       <!-- /.social-auth-links -->
