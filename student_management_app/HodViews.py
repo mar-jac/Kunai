@@ -34,3 +34,9 @@ def add_staff_save(request):
         except:
             messages.error(request, "Failed to Add Staff")
             return HttpResponseRedirect("/add_staff")
+
+def add_course_save(request):
+    render (request,"hod_template/add_course_template.html")
+
+def add_course_save(request):
+    pass
