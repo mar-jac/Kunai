@@ -36,7 +36,7 @@ def add_staff_save(request):
             return HttpResponseRedirect("/add_staff")
 
 def add_course(request):
-    render (request,"hod_template/add_course_template.html")
+    return render(request,"hod_template/add_course_template.html")
 
 def add_course_save(request):
     if request.method!="POST":
