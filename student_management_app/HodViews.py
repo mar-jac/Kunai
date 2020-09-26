@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
-from student_management_app.models import CustomUser, Staffs
+from student_management_app.models import CustomUser, Staffs, Courses
 
 
 def admin_home(request):
@@ -35,8 +35,19 @@ def add_staff_save(request):
             messages.error(request, "Failed to Add Staff")
             return HttpResponseRedirect("/add_staff")
 
-def add_course_save(request):
+def add_course(request):
     render (request,"hod_template/add_course_template.html")
 
 def add_course_save(request):
-    pass
+    if request.method!="POST":
+        return HttpResponseRedirect("Method Not Allowed")
+    else:
+        course=request.POST.get("course")
+        try:
+            course_model=Courses(course_name=course)
+            course_model.save()
+            messages.success(request, "Successfully Added Course")
+            return HttpResponseRedirect("/add_course")
+        except:
+            messages.error(request, "Failed To Add Course")
+            return HttpResponseRedirect("/add_course")
