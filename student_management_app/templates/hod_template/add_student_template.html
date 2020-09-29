@@ -44,12 +44,28 @@ Add Student
                   </div>
                     <div class="form-group">
                     <label>Course</label>
-                    <select  class="form-control" name="course">
-                       {% for course in courses %}
-                            <option value="{{ course.id }}">{{ course.course_name }}</option>
-                        {% endfor %}
+                    <select class="form-control" name="course">
+                        {% for course in courses %}
+                        <option value="{{ course.id }}">{{ course.course_name }}</option>
+                        {% endfor  %}
+                    </select>
+                    </div>
+                    <div class="form-group">
+                    <label>Gender</label>
+                    <select  class="form-control" name="sex">
+                       <option>Male</option>
+                        <option>Female</option>
+
                     </select>
                   </div>
+                        <div class="form-group">
+                        <label>Class Start</label>
+                            <input type="date" class="form-control" placeholder="Session Start Year" name="session_start">
+                        </div>
+                <div class="form-group">
+                        <label>Class End</label>
+                            <input type="date" class="form-control" placeholder="Session End Year" name="session_end">
+                        </div>
                      <div class="form-group">
                         {% if messages %}
                             {% for message in messages %}
