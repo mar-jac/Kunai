@@ -1,6 +1,6 @@
 {% extends 'hod_template/base_template.html' %}
 {% block page_title %}
-Managing the Staff
+Change Courses
 {% endblock page_title %}
 {% block main_content %}
     <!-- Main content -->
@@ -38,7 +38,7 @@ Managing the Staff
                     <tr>
                       <td>{{ course.id }}</td>
                      <td>{{ course.course_name }}</td>
-                        <td><a href="/edit_course/{{ staff.admin.id }}" class="btn btn-success">Edit</a></td>
+                        <td><a href="/edit_course/{{ course.id}}" class="btn btn-success">Edit</a></td>
                     </tr>
                   {% endfor %}
                   </tbody>

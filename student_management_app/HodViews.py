@@ -75,9 +75,9 @@ def add_student_save(request):
         course_id = request.POST.get("course")
         sex = request.POST.get("sex")
 
-        profile_pic=request.FILES['[profile_pic']
+        profile_pic=request.FILES['profile_pic']
         fs=FileSystemStorage()
-        filename=fs.save([profile_pic.name,profile_pic])
+        filename=fs.save(profile_pic.name,profile_pic)
         profile_pic_url=fs.url(filename)
 
 
@@ -201,13 +201,16 @@ def edit_student_save(request):
         course_id = request.POST.get("course")
         sex = request.POST.get("sex")
 
-        if request.FILES['[profile_pic']:
-            profile_pic = request.FILES['[profile_pic']
+        if request.FILES['profile_pic']:
+            profile_pic = request.FILES['profile_pic']
             fs = FileSystemStorage()
-            filename = fs.save([profile_pic.name, profile_pic])
+            filename = fs.save(profile_pic.name, profile_pic)
             profile_pic_url = fs.url(filename)
         else:
             profile_pic_url=None
+
+
+
         try:
             user=CustomUser.objects.get(id=student_id)
             user.first_name = first_name
@@ -225,7 +228,7 @@ def edit_student_save(request):
             course=Courses.objects.get(id=course_id)
             student.course_id=course
             if profile_pic_url!=None:
-                 student.profile_pic=profile_pic_url
+                student.profile_pic=profile_pic_url
             student.save()
             messages.success(request, "Student Has Been Edited")
             return HttpResponseRedirect("/edit_student/" + student_id)
@@ -239,15 +242,12 @@ def edit_subject(request,subject_id):
     staffs=CustomUser.objects.filter(user_type=2)
     return render(request,"hod_template/edit_subject_template.html",{"subject":subject,"staffs":staffs,"courses":courses})
 
-
-    pass
-
 def edit_subject_save(request):
     if request.method != "POST":
         return HttpResponse("<h2>Method Not Allowed</h2>")
     else:
         subject_id = request.POST.get("subject_id")
-        subject_name = request.Post.get("subject_name")
+        subject_name = request.POST.get("subject_name")
         staff_id=request.POST.get("staff")
         course_id=request.POST.get("course")
 
@@ -268,14 +268,14 @@ def edit_subject_save(request):
 
 def edit_course(request,course_id):
     course=Courses.objects.get(id=course_id)
-    return render(request,"hod_template/edit_course_template.html",{"course":course})
+    return render(request,"hod_template/edit_course_template.html", {"course":course})
 
 def edit_course_save(request):
     if request.method!="POST":
         return HttpResponse("<h2>Method Not Allowed</h2>")
     else:
         course_id=request.POST.get("course_id")
-        course_name=request.Post.get("course")
+        course_name=request.POST.get("course")
 
         try:
             course=Courses.objects.get(id=course_id)
