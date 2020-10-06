@@ -15,7 +15,17 @@ Add Student
               </div>
               <!-- /.card-header -->
               <!-- form start -->
+                <form role="form" action="/add_student_save" method="post" enctype="multipart/form-data">
+                  {%  csrf_token %}
+                <div class="card-body">
                 {{ form }}
+                                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Add Student</button>
+                </div>
+              </form>
             </div>
             <!-- /.card -->
 

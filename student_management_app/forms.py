@@ -6,8 +6,8 @@ class DateInput(forms.DateInput):
     input_type = "date"
 
 class AddStudentForm(forms.Form):
-    email=forms.EmailField(label="Email",max_length=50)
-    password=forms.CharField(label="Password",max_length=50)
+    email=forms.EmailField(label="Email",max_length=50,widget=forms.EmailInput())
+    password=forms.CharField(label="Password",max_length=50,widget=forms.PasswordInput())
     first_name=forms.CharField(label="First Name",max_length=50)
     last_name=forms.CharField(label="Last Name",max_length=50)
     username=forms.CharField(label="Username",max_length=50)
@@ -22,6 +22,8 @@ class AddStudentForm(forms.Form):
     gender_choice=(
         ("Male","Male"),
         ("Female","Female"),
+        ("Non-Binary", "Non-Binary"),
+        ("Other Not Listed", "Other Not Listed")
 
     )
 
