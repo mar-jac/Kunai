@@ -66,65 +66,69 @@ def add_student_save(request):
     if request.method != "POST":
         return HttpResponse("Method Not Allowed")
     else:
-        first_name = request.POST.get("first_name")
-        last_name = request.POST.get("last_name")
-        username = request.POST.get("username")
-        email = request.POST.get("email")
-        password = request.POST.get("password")
-        address = request.POST.get("address")
-        session_start = request.POST.get("session_start")
-        session_end = request.POST.get("session_end")
-        course_id = request.POST.get("course")
-        sex = request.POST.get("sex")
+        form=AddStudentForm(request.POST,request.FILES)
+        if form.is_valid():
+                first_name =form.cleaned_data["first_name"]
+                last_name = form.cleaned_data["last_name"]
+                username = form.cleaned_data["username"]
+                email = form.cleaned_data["email"]
+                password = form.cleaned_data["password"]
+                address = form.cleaned_data["address"]
+                session_start = form.cleaned_data["session_start"]
+                session_end = form.cleaned_data["session_end"]
+                course_id = form.cleaned_data["course"]
+                sex = form.cleaned_data["sex"]
 
-        profile_pic=request.FILES['profile_pic']
-        fs=FileSystemStorage()
-        filename=fs.save(profile_pic.name,profile_pic)
-        profile_pic_url=fs.url(filename)
-
-
-        try:
-            user = CustomUser.objects.create_user(username=username, password=password, email=email,
-                                                  last_name=last_name, first_name=first_name, user_type=3)
-            user.students.address = address
-            course_obj = Courses.objects.get(id=course_id)
-            user.students.course_id = course_obj
-            user.students.session_start_year = session_start
-            user.students.session_end_year = session_end
-            user.students.gender = sex
-            user.students.profile_pic =profile_pic_url
-            user.save()
-            messages.success(request, "Successfully Added Student")
-            return HttpResponseRedirect("/add_student")
-        except:
-            messages.error(request, "Failed to Add Student")
-            return HttpResponseRedirect("/add_student")
+                profile_pic=request.FILES['profile_pic']
+                fs=FileSystemStorage()
+                filename=fs.save(profile_pic.name,profile_pic)
+                profile_pic_url=fs.url(filename)
 
 
-def add_subject(request):
-    courses = Courses.objects.all()
-    staffs = CustomUser.objects.filter(user_type=2)
-    return render(request, "hod_template/add_subject_template.html", {"staffs": staffs, "courses": courses})
+                try:
+                    user = CustomUser.objects.create_user(username=username, password=password, email=email,last_name=last_name, first_name=first_name, user_type=3)
+                    user.students.address = address
+                    course_obj = Courses.objects.get(id=course_id)
+                    user.students.course_id = course_obj
+                    user.students.session_start_year = session_start
+                    user.students.session_end_year = session_end
+                    user.students.gender = sex
+                    user.students.profile_pic =profile_pic_url
+                    user.save()
+                    messages.success(request, "Successfully Added Student")
+                    return HttpResponseRedirect("/add_student")
+                except:
+                    messages.error(request, "Failed to Add Student")
+                    return HttpResponseRedirect("/add_student")
+        else:
+                    form=AddStudentForm(request.POST)
+                    return render(request, "hod_template/add_student_template.html", { "form": form})
 
 
-def add_subject_save(request):
-    if request.method != "POST":
-        return HttpResponse("<h2>Method Not Allowed</h2>")
-    else:
-        subject_name = request.POST.get("subject_name")
-        course_id = request.POST.get("course")
-        course = Courses.objects.get(id=course_id)
-        staff_id = request.POST.get("course")
-        staff = CustomUser.objects.get(id=staff_id)
+        def add_subject(request):
+            courses = Courses.objects.all()
+            staffs = CustomUser.objects.filter(user_type=2)
+            return render(request, "hod_template/add_subject_template.html", {"staffs": staffs, "courses": courses})
 
-        try:
-            subject = Subjects(subject_name=subject_name, course_id=course, staff_id=staff)
-            subject.save()
-            messages.success(request, "Successfully Added the Subject")
-            return HttpResponseRedirect("/add_subject")
-        except:
-            messages.error(request, "We Could Not Add Subject")
-            return HttpResponseRedirect("/add_subject")
+
+        def add_subject_save(request):
+            if request.method != "POST":
+                return HttpResponse("<h2>Method Not Allowed</h2>")
+            else:
+                subject_name = request.POST.get("subject_name")
+                course_id = request.POST.get("course")
+                course = Courses.objects.get(id=course_id)
+                staff_id = request.POST.get("course")
+                staff = CustomUser.objects.get(id=staff_id)
+
+                try:
+                    subject = Subjects(subject_name=subject_name, course_id=course, staff_id=staff)
+                    subject.save()
+                    messages.success(request, "Successfully Added the Subject")
+                    return HttpResponseRedirect("/add_subject")
+                except:
+                    messages.error(request, "We Could Not Add Subject")
+                    return HttpResponseRedirect("/add_subject")
 
 
 def manage_staff(request):
