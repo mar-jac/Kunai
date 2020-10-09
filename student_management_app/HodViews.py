@@ -317,3 +317,7 @@ def edit_course_save(request):
         except:
             messages.error(request, "Failed to Edit Course")
             return HttpResponseRedirect(reverse("edit_course", kwargs={"course_id": course_id}))
+
+
+def manage_session(request):
+    return render(request, "hod_template/manage_session_template.html")
