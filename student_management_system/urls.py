@@ -1,7 +1,6 @@
 """student_management_system URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.1/topics/http/urls/
+    https://docs.djangoproject.com/en/2.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -20,17 +19,16 @@ from django.urls import path
 from student_management_app import views, HodViews, StaffViews, StudentViews
 from student_management_system import settings
 
-
 urlpatterns = [
     path('demo',views.showDemoPage),
     path('admin/', admin.site.urls),
-    path('',views.showLoginPage, name="show_login"),
+    path('',views.showLoginPage,name="show_login"),
     path('get_user_details', views.GetUserDetails),
     path('logout_user', views.logout_user,name="logout"),
-    path('doLogin', views.doLogin,name="do_login"),
-    path('admin_home', HodViews.admin_home,name="admin_home"),
-    path('add_staff', HodViews.add_staff,name="add_staff"),
-    path('add_staff_save', HodViews.add_staff_save,name="add_staff_save"),
+    path('doLogin',views.doLogin,name="do_login"),
+    path('admin_home',HodViews.admin_home,name="admin_home"),
+    path('add_staff',HodViews.add_staff,name="add_staff"),
+    path('add_staff_save',HodViews.add_staff_save,name="add_staff_save"),
     path('add_course', HodViews.add_course,name="add_course"),
     path('add_course_save', HodViews.add_course_save,name="add_course_save"),
     path('add_student', HodViews.add_student,name="add_student"),
@@ -51,12 +49,17 @@ urlpatterns = [
     path('edit_course_save', HodViews.edit_course_save,name="edit_course_save"),
     path('manage_session', HodViews.manage_session,name="manage_session"),
     path('add_session_save', HodViews.add_session_save,name="add_session_save"),
-#   Staff
+#     Staff URL Path
     path('staff_home', StaffViews.staff_home, name="staff_home"),
     path('staff_take_attendance', StaffViews.staff_take_attendance, name="staff_take_attendance"),
+    path('staff_update_attendance', StaffViews.staff_update_attendance, name="staff_update_attendance"),
     path('get_students', StaffViews.get_students, name="get_students"),
+    path('get_attendance_dates', StaffViews.get_attendance_dates, name="get_attendance_dates"),
+    path('get_attendance_student', StaffViews.get_attendance_student, name="get_attendance_student"),
     path('save_attendance_data', StaffViews.save_attendance_data, name="save_attendance_data"),
+    path('save_updateattendance_data', StaffViews.save_updateattendance_data, name="save_updateattendance_data"),
 
 
     path('student_home', StudentViews.student_home, name="student_home"),
+
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)+static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
