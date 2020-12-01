@@ -123,7 +123,7 @@ class UserLoginView(LoginView):
     def post(self, request, *args, **kwargs):
         captcha_token = request.POST.get("g-recaptcha-response")
         cap_url = "https://www.google.com/recaptcha/api/siteverify"
-        cap_secret = '6LdySfQZAAAAAN9kG4tJbYqq9dUyUY3c3YsC-j0u'
+        cap_secret = '6LfNSvQZAAAAAJ93dzhRG6i8R7AAg1eRZ4hE7Q5g'
         cap_data = {"secret": cap_secret, "response": captcha_token}
         cap_server_response = requests.post(url=cap_url, data=cap_data)
         cap_json = json.loads(cap_server_response.text)
