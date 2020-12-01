@@ -162,7 +162,7 @@ DATABASES['default'].update(prod_db)
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'email.com'
-EMAIL_HOST_PASSWORD = 'password'
+EMAIL_HOST_USER = 'frillishstorm@protonmail.com '
+EMAIL_HOST_PASSWORD = 'rockon1234'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
