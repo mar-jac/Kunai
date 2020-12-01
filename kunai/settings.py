@@ -28,7 +28,7 @@ SECRET_KEY = 'n$hay2m(xpvb)9dlv-vydwqb)(ot6iq!aunhrkt38#%p7pcyib'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'kunai.herokuapp.com',
+    'kunai-app.herokuapp.com',
     '127.0.0.1'
 ]
 
