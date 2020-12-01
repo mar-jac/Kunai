@@ -1,0 +1,129 @@
+{% load static %}
+
+<nav id="sidebar">
+  <div class="p-4 pt-5">
+    <div class="text-center">
+      <img src="https://img.icons8.com/color/96/000000/change-user-male--v1.png" width="100" height="100">
+    </div>
+    <div class="text-center mb-5">{{ request.user }}</div>
+    <ul class="list-unstyled components">
+      <li>
+        <a href="{% url 'home' %}">
+          <i class="fa fa-tachometer mr-2"></i>Dashboard
+        </a>
+      </li>
+
+      <li>
+        <a href="#staff" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+          <i class="fa fa-user mr-2"></i>Manage Staff
+        </a>
+
+        <ul class="collapse list-unstyled" id="staff">
+          <li>
+            <a href="{% url 'users:list_staff' %}">Staff List</a>
+          </li>
+
+          <li>
+            <a href="{% url 'users:new_staff' %}">Add Staff</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#student" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+          <i class="fa fa-graduation-cap mr-2"></i>Manage Students
+        </a>
+
+        <ul class="collapse list-unstyled" id="student">
+          <li>
+            <a href="{% url 'users:list_student' %}">Students List</a>
+          </li>
+
+          <li>
+            <a href="{% url 'users:new_student' %}">Add Student</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#course" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+          <i class="fa fa-book mr-2"></i>Manage Courses
+        </a>
+
+        <ul class="collapse list-unstyled" id="course">
+          <li>
+            <a href="{% url 'courses:list' %}">Courses List</a>
+          </li>
+
+          <li>
+            <a href="{% url 'courses:new' %}">Add Course</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#subject" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+          <i class="fa fa-tasks mr-2"></i>Manage Subjects
+        </a>
+
+        <ul class="collapse list-unstyled" id="subject">
+          <li>
+            <a href="{% url 'subjects:list' %}">Subjects List</a>
+          </li>
+
+          <li>
+            <a href="{% url 'subjects:new' %}">Add Subject</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#session" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+          <i class="fa fa-clock-o mr-2"></i> Manage Session
+        </a>
+
+        <ul class="collapse list-unstyled" id="session">
+          <li>
+            <a href="{% url 'session:list' %}">Session List</a>
+          </li>
+
+          <li>
+            <a href="{% url 'session:new' %}">Add Session</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="{% url 'leaves:list_staff' %}"><i class="fa fa-sign-out mr-2"></i>Staff Leave</a>
+      </li>
+
+      <li>
+        <a href="{% url 'leaves:list_student' %}"><i class="fa fa-sign-out mr-2"></i>Student Leave</a>
+      </li>
+
+      <li>
+        <a href="{% url 'feedback:list_staff' %}"><i class="fa fa-comment mr-2"></i>Staff Feedback</a>
+      </li>
+
+      <li>
+        <a href="{% url 'feedback:list_student' %}"><i class="fa fa-comment mr-2"></i>Student Feedback</a>
+      </li>
+
+      <li>
+        <a href="#notification" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+          <i class="fa fa-bell mr-2"></i>Notifications
+        </a>
+
+        <ul class="collapse list-unstyled" id="notification">
+          <li>
+            <a href="{% url 'notifications:new_staff' %}">Send Staff Notification</a>
+          </li>
+
+          <li>
+            <a href="{% url 'notifications:new_student' %}">Send Student Notification</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,43 @@
+{% extends 'staff/index.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="card card-border shadow rounded mb-4">
+  <div class="my-4 mx-4">
+    <h3 class="text-center mb-5">Add Attendance</h3>
+    <form method="POST">
+      {% csrf_token %}
+      {% bootstrap_field form.subject layout="horizontal" %}
+      {% bootstrap_field form.session layout="horizontal" %}
+      {% bootstrap_field form.attendance_date layout="horizontal" %}
+      <button id="fetch_students" type="button" class="btn btn-block btn-primary my-5">Fetch Students</button>
+      <div id="students_form" class="row mt-5"></div>
+      <div id="save_btn" class="d-none">
+        <button type="submit" class="btn btn-block btn-primary mt-5">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock content %}
+
+{% block javascript %}
+<script>
+  $("#fetch_students").click(() => {
+    $("#students_form").html("");
+    let subject_id = ($("#id_subject").val());
+    let session_id = ($("#id_session").val());
+    if (session_id) {
+      $.ajax({
+        url: `{% url 'users:list_student' %}?subject=${subject_id}&session=${session_id}`,
+        method: "GET",
+        success(response) {
+          $("#save_btn").removeClass("d-none");
+          for (let student of response) {
+            $("#students_form").append(`<div class="col-lg-4 col-sm-6"><div class="form-group"><label for="student_${student.id}" class="col-form-label mr-2">${student.first_name} ${student.last_name}</label><input class="mr-4" id="student_${student.id}" type="checkbox" checked name="student[]" value="${student.id}"></div></div>`);
+          }
+        }
+      });
+    }
+  });
+</script>
+{% endblock javascript %}

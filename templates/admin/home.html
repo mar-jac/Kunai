@@ -1,0 +1,236 @@
+{% extends 'admin/index.html' %}
+
+{% block content %}
+<h3>Admin Dashboard</h3>
+<div class="row">
+  <div class="col-md-3 col-sm-6 mt-4">
+    <div class="card h-100 bg-info text-light shadow rounded">
+      <div class="my-4 mx-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+          <h3 class="text-light">{{ pending_staff_leaves }}</h3>
+          <i style="font-size: 30px;" class="fa fa-pie-chart"></i>
+        </div>
+        <p>Staff Pending Leaves</p>
+      </div>
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6 mt-4">
+    <div class="card h-100 bg-success text-light shadow rounded">
+      <div class="my-4 mx-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+          <h3 class="text-light">{{ pending_student_leaves }}</h3>
+          <i style="font-size: 30px;" class="fa fa-pie-chart"></i>
+        </div>
+        <p>Student Pending Leaves</p>
+      </div>
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6 mt-4">
+    <div class="card h-100 bg-danger text-light shadow rounded">
+      <div class="my-4 mx-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+          <h3 class="text-light">{{ staff_feedbacks }}</h3>
+          <i style="font-size: 30px;" class="fa fa-pie-chart"></i>
+        </div>
+        <p>Total Staff Feeback</p>
+      </div>
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6 mt-4">
+    <div class="card h-100 bg-warning shadow rounded">
+      <div class="my-4 mx-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+          <h3>{{ student_feedbacks }}</h3>
+          <i style="font-size: 30px;" class="fa fa-pie-chart"></i>
+        </div>
+        <p>Total Student Feedback</p>
+      </div>
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="col-md-6 mb-5">
+    <div class="card h-100 shadow rounded">
+      <div class="card-header text-light bg-danger">Student and Staff Chart</div>
+      <div class="my-3 mx-3">
+        <canvas id="comparison_chart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 mb-5">
+    <div class="card h-100 shadow rounded">
+      <div class="card-header bg-warning">Subject and Course Chart</div>
+      <div class="my-3 mx-3">
+        <canvas id="course_chart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-5">
+  <div class="col-md-12">
+    <div class="card h-100 shadow rounded">
+      <div class="card-header text-light bg-info">Staff Leaves vs Attendance</div>
+      <div class="my-3 mx-3">
+        <canvas id="staff_bar"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row my-5">
+  <div class="col-md-12">
+    <div class="card h-100 shadow rounded">
+      <div class="card-header text-light bg-info">Student Leaves vs Attendance</div>
+      <div class="my-3 mx-3">
+        <canvas id="student_bar"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block javascript %}
+<script>
+  var comparison_chart = document.getElementById('comparison_chart').getContext('2d');
+  var attendance_pie = new Chart(comparison_chart, {
+    type: 'pie',
+    data: {
+      labels: ['Students', 'Staff'],
+      datasets: [{
+        label: 'Comparison',
+        data: ["{{ total_students }}", "{{ total_staff }}"],
+        backgroundColor: [
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+        ],
+        borderColor: [
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+        ],
+        borderWidth: 0.5
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+
+  var course_chart = document.getElementById('course_chart').getContext('2d');
+  var attendance_pie = new Chart(course_chart, {
+    type: 'pie',
+    data: {
+      labels: ['Subjects', 'Courses'],
+      datasets: [{
+        label: 'Comparison',
+        data: ["{{ total_subjects }}", "{{ total_courses }}"],
+        backgroundColor: [
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+        ],
+        borderColor: [
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+        ],
+        borderWidth: 0.5
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+
+  var staffs = {{ staff_list| safe }};
+  var presents = {{ staff_present_list| safe }};
+  var absents = {{ staff_absent_list| safe }};
+  var staff_bar = document.getElementById('staff_bar').getContext('2d');
+  var attendance_pie = new Chart(staff_bar, {
+    type: 'bar',
+    data: {
+      labels: staffs,
+      datasets: [{
+        label: "Present",
+        data: presents,
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 0.5
+      },
+      {
+        label: "Leave",
+        data: absents,
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 0.5
+      }],
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+
+  var students = {{ student_list| safe }};
+  var students_presents = {{ student_present_list| safe }};
+  var students_absents = {{ student_absent_list| safe }};
+  var student_bar = document.getElementById('student_bar').getContext('2d');
+  var attendance_pie = new Chart(student_bar, {
+    type: 'bar',
+    data: {
+      labels: students,
+      datasets: [{
+        label: "Present",
+        data: students_presents,
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 0.5
+      },
+      {
+        label: "Leave",
+        data: students_absents,
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 0.5
+      }],
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+</script>
+{% endblock javascript %}

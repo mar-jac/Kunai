@@ -1,0 +1,50 @@
+{% extends 'admin/index.html' %}
+
+{% block content %}
+<div class="card card-border shadow rounded mb-4">
+  <div class="my-4 mx-4">
+    <h4 class="card-title mb-4">Student Feedback</h4>
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Message</th>
+            <th>Sent on</th>
+            <th>Reply</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for feedback in object_list %}
+          <tr>
+            <td>{{ feedback.student.user.first_name }} {{ feedback.student.user.last_name }}</td>
+            <td>{{ feedback.feedback }}</td>
+            <td>{{ feedback.created_at|date:"M d, Y" }}</td>
+            {% if feedback.reply %}
+            <td>{{ feedback.reply }}</td>
+            {% else %}
+            <td>
+              <button class="btn btn-sm btn-pill btn-outline-primary" data-toggle="modal" data-target="#reply_modal"
+                onclick="setFormAction('{{ feedback.id }}')">Reply</button>
+            </td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+
+        {% include 'admin/components/modal.html' with modal_id="reply_modal" header="Reply to Feedback" form_id="reply_form" btn_color="btn-success" submit_text="Reply"  %}
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block javascript %}
+<script>
+  function setFormAction(id) {
+    $("#reply_form").attr("action", "{% url 'feedback:update_student' 10 %}".replace("10", id));
+  }
+</script>
+{% endblock javascript %}

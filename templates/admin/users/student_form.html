@@ -1,0 +1,59 @@
+{% extends 'admin/index.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="card card-border shadow rounded mb-4">
+  <div class="my-4 mx-4">
+    <h3 class="text-center mb-5">Add Student</h3>
+
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-md-6">
+          {% bootstrap_field form.first_name %}
+        </div>
+
+        <div class="col-md-6">
+          {% bootstrap_field form.last_name %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          {% bootstrap_field form2.student_id %}
+        </div>
+
+        <div class="col-md-6">
+          {% bootstrap_field form.email %}
+        </div>
+      </div>
+
+      {% bootstrap_field form2.address %}
+
+      <div class="row">
+        <div class="col-md-6">
+          {% bootstrap_field form2.gender %}
+        </div>
+
+        <div class="col-md-6">
+          {% bootstrap_field form2.session %}
+        </div>
+      </div>
+
+      {% bootstrap_field form2.course %}
+
+      <div class="row">
+        <div class="col-md-6">
+          {% bootstrap_field form.username %}
+        </div>
+
+        <div class="col-md-6">
+          {% bootstrap_field form.password %}
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-block btn-primary mt-5">Save</button>
+    </form>
+  </div>
+</div>
+{% endblock content %}

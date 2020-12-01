@@ -1,0 +1,60 @@
+{% extends 'admin/index.html' %}
+
+{% block content %}
+<div class="card card-border shadow rounded mb-4">
+  <div class="my-4 mx-4">
+    <h4 class="card-title mb-4">Staff Leave</h4>
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Staff Name</th>
+            <th>Leave Date</th>
+            <th>Leave Message</th>
+            <th>Apply Date</th>
+            <th colspan="2">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for leave in object_list %}
+          <tr>
+            <td>{{ leave.staff.user.first_name }} {{ leave.staff.user.last_name }}</td>
+            <td>{{ leave.leave_date|date:"M d, Y" }}</td>
+            <td>{{ leave.leave_message }}</td>
+            <td>{{ leave.created_at|date:"M d, Y" }}</td>
+            {% if leave.leave_status == 1 %}
+            <td>
+              <form action="{% url 'leaves:update_staff' leave.id %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="status" value="2">
+                <button type="submit" class="btn btn-pill btn-sm btn-outline-success">Approve</button>
+              </form>
+            </td>
+
+            <td>
+              <form action="{% url 'leaves:update_staff' leave.id %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="status" value="3">
+                <button type="submit" class="btn btn-pill btn-sm btn-outline-danger">Decline</button>
+              </form>
+            </td>
+
+            {% else %}
+            <td>
+              {% if leave.leave_status == 2 %}
+              <span class="badge badge-pill badge-success">{{ leave.get_leave_status_display }}</span>
+              {% else %}
+              <span class="badge badge-pill badge-danger">{{ leave.get_leave_status_display }}</span>
+              {% endif %}
+            </td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock content %}

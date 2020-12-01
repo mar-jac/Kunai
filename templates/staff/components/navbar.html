@@ -1,0 +1,58 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <button type="button" id="sidebarCollapse" class="btn btn-pill btn-sidebar">
+      <i class="fa fa-bars"></i>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+    <button class="btn btn-pill btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Requests</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Custom1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#logout-modal">Logout</a>
+        </li>
+
+        <div class="modal fade" id="logout-modal" tabindex="-1" role="dialog" aria-labelledby="logout-modal"
+          aria-hidden="true">
+          <div class="modal-dialog my-5" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Logout?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                Are you sure you want to logout?
+                <form id="logout-form" method="POST" action="{% url 'logout' %}">
+                  {% csrf_token %}
+                </form>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button form="logout-form" type="submit" type="button" class="btn btn-danger">Logout</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>

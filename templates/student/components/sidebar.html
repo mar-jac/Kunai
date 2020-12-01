@@ -1,0 +1,47 @@
+{% load static %}
+
+<nav id="sidebar">
+  <div class="p-4 pt-5">
+    <div class="text-center">
+      <img src="https://img.icons8.com/color/96/000000/change-user-male--v1.png" width="100" height="100">
+    </div>
+    <div class="text-center mb-5">{{ request.user }}</div>
+    <ul class="list-unstyled components">
+      <li>
+        <a href="{% url 'home' %}">
+          <i class="fa fa-tachometer mr-2"></i>Dashboard
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'attendance:search' %}">
+          <i class="fa fa-hourglass mr-2"></i>View Attendance
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'leaves:new_student' %}">
+          <i class="fa fa-sign-out mr-2"></i>Apply for Leave
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'feedback:new_student' %}">
+          <i class="fa fa-comment mr-2"></i>Feedback
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'results:list' %}">
+          <i class="fa fa-percent mr-2"></i>View Result
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'notifications:list_student' %}">
+          <i class="fa fa-bell mr-2"></i>Notifications
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

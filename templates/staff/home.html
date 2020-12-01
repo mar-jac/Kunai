@@ -1,0 +1,196 @@
+{% extends 'staff/index.html' %}
+
+{% block content %}
+<h3>Staff Dashboard</h3>
+<div class="row">
+  <div class="col-md-3 col-sm-6 mt-4">
+    <div class="card h-100 bg-info text-light shadow rounded">
+      <div class="my-4 mx-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+          <h3 class="text-light">{{ pending_notifications }}</h3>
+          <i style="font-size: 30px;" class="fa fa-bar-chart"></i>
+        </div>
+        <p>Pending Notification</p>
+      </div>
+
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6 mt-4">
+    <div class="card h-100 bg-success text-light shadow rounded">
+      <div class="my-4 mx-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+          <h3 class="text-light">{{ total_attendance }}</h3>
+          <i style="font-size: 30px;" class="fa fa-bar-chart"></i>
+        </div>
+        <p>Attendance Taken</p>
+      </div>
+
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6 mt-4">
+    <div class="card h-100 bg-danger text-light shadow rounded">
+      <div class="my-4 mx-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+          <h3 class="text-light">{{ total_leaves }}</h3>
+          <i style="font-size: 30px;" class="fa fa-bar-chart"></i>
+        </div>
+        <p>Leave taken</p>
+      </div>
+
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6 mt-4">
+    <div class="card h-100 bg-warning shadow rounded">
+      <div class="my-4 mx-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+          <h3>{{ total_subjects }}</h3>
+          <i style="font-size: 30px;" class="fa fa-bar-chart"></i>
+        </div>
+        <p>Total Subjects</p>
+      </div>
+
+      <div class="card-footer"></div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="col-md-6 mb-5">
+    <div class="card h-100 shadow rounded">
+      <div class="card-header text-light bg-danger">Attendance vs Leave Chart</div>
+      <div class="my-3 mx-3">
+        <canvas id="attendance_pie"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 mb-5">
+    <div class="card h-100 shadow rounded">
+      <div class="card-header bg-warning">Attend Subject Chart</div>
+      <div class="my-3 mx-3">
+        <canvas id="subject_bar"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-5">
+  <div class="col-md-12">
+    <div class="card h-100 shadow rounded">
+      <div class="card-header text-light bg-info">Students Attendance Data</div>
+      <div class="my-3 mx-3">
+        <canvas id="student_bar"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block javascript %}
+<script>
+  var pie = document.getElementById('attendance_pie').getContext('2d');
+  var attendance_pie = new Chart(pie, {
+    type: 'pie',
+    data: {
+      labels: ['Attendance', 'Leave'],
+      datasets: [{
+        label: 'Attendance',
+        data: ["{{ total_attendance }}", "{{ total_leaves }}"],
+        backgroundColor: [
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+        ],
+        borderColor: [
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+        ],
+        borderWidth: 0.5
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+
+  var subjects = {{ subject_list| safe }}
+  var attendances = {{ attendance_list| safe }}
+  var bar = document.getElementById('subject_bar').getContext('2d');
+  var attendance_pie = new Chart(bar, {
+    type: 'bar',
+    data: {
+      labels: subjects,
+      datasets: [{
+        label: 'Attendance',
+        data: attendances,
+        backgroundColor: [
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+        ],
+        borderColor: [
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+        ],
+        borderWidth: 0.5
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+
+  var students = {{ student_list| safe }};
+  var presents = {{ present_list| safe }};
+  var absents = {{ absent_list| safe }};
+  var student_bar = document.getElementById('student_bar').getContext('2d');
+  var attendance_pie = new Chart(student_bar, {
+    type: 'bar',
+    data: {
+      labels: students,
+      datasets: [{
+        label: "Present",
+        data: presents,
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 0.5
+      },
+      {
+        label: "Absent",
+        data: absents,
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 0.5
+      }],
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+</script>
+{% endblock javascript %}

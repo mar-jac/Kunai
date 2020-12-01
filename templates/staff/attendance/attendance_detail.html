@@ -1,0 +1,69 @@
+{% extends 'staff/index.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="card card-border shadow rounded mb-4">
+  <div class="my-4 mx-4">
+    <h3 class="text-center mb-5">View Attendance</h3>
+    <form method="POST" action="{% url 'attendance:update' %}">
+      {% csrf_token %}
+      {% bootstrap_field form.subject layout="horizontal" %}
+      {% bootstrap_field form.session layout="horizontal" %}
+      <button id="fetch_dates" type="button" class="btn btn-block btn-primary my-5">Fetch Attendance Dates</button>
+
+      <div id="attendance_select" class="d-none">
+        {% bootstrap_field form.attendance_date layout="horizontal" %}
+      </div>
+
+      <div id="students_form" class="row mt-5"></div>
+
+      <button id="submit_btn" type="submit" class="d-none btn btn-block btn-primary mt-5">Save</button>
+    </form>
+  </div>
+</div>
+{% endblock content %}
+
+{% block javascript %}
+<script>
+  $("#fetch_dates").click(() => {
+    let subject_id = ($("#id_subject").val());
+    let session_id = ($("#id_session").val());
+    if (subject_id && session_id) {
+      $.ajax({
+        url: `{% url 'attendance:update' %}?subject=${subject_id}&session=${session_id}`,
+        method: "GET",
+        success(response) {
+          $("#attendance_select").removeClass("d-none");
+          $("#student_select").removeClass("d-none");
+          $("#id_attendance_date").html(`<option value>---------</option>`);
+          for (let attendance of response) {
+            $("#id_attendance_date").append(`<option value="${attendance.id}">${attendance.attendance_date}</option>`);
+          }
+        }
+      })
+    }
+  });
+
+  $("#id_attendance_date").change(() => {
+    $("#students_form").html("");
+    let attendance_id = ($("#id_attendance_date").val());
+    if (attendance_id) {
+      $.ajax({
+        url: `{% url 'attendance:detail' %}?attendance=${attendance_id}`,
+        method: "GET",
+        success(response) {
+          for (let attendance_report of response) {
+            $("#submit_btn").removeClass("d-none");
+            $("#students_form").removeClass("d-none");
+            if (attendance_report.status) {
+              $("#students_form").append(`<div class="col-lg-4 col-sm-6"><div class="form-group"><label for="student_${attendance_report.id}" class="col-form-label mr-2">${attendance_report.student.first_name} ${attendance_report.student.last_name} <b>[Present]</b></label><input class="mr-4" id="student_${attendance_report.id}" type="checkbox" checked name="report[]" value="${attendance_report.id}"></div></div>`);
+            } else {
+              $("#students_form").append(`<div class="col-lg-4 col-sm-6"><div class="form-group"><label for="student_${attendance_report.id}" class="col-form-label mr-2">${attendance_report.student.first_name} ${attendance_report.student.last_name} <b>[Absent]</b></label><input class="mr-4" id="student_${attendance_report.id}" type="checkbox" name="report[]" value="${attendance_report.id}"></div></div>`);
+            }
+          }
+        }
+      });
+    }
+  });
+</script>
+{% endblock javascript %}

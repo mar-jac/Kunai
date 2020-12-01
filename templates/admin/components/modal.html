@@ -1,0 +1,27 @@
+{% load bootstrap4 %}
+
+<div class="modal fade" id="{{ modal_id }}" tabindex="-1" role="dialog" aria-labelledby="{{ modal_id }}"
+  aria-hidden="true">
+  <div class="modal-dialog my-5" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ header }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form id="{{ form_id }}" method="POST" action="{{ form_action }}">
+          {% csrf_token %}
+          {% bootstrap_form form %}
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <button form="{{ form_id }}" type="submit" type="button" class="btn {{ btn_color }}">{{ submit_text }}</button>
+      </div>
+    </div>
+  </div>
+</div>

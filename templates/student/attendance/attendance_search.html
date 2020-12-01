@@ -1,0 +1,25 @@
+{% extends 'student/index.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="card card-border shadow rounded mb-4">
+  <div class="my-4 mx-4">
+    <h3 class="text-center mb-5">View Attendance</h3>
+    <form id="attendance_form" method="GET">
+      {% bootstrap_field form.subject %}
+
+      <div class="row">
+        <div class="col-md-6">
+          {% bootstrap_field form.start_date %}
+        </div>
+
+        <div class="col-md-6">
+          {% bootstrap_field form.end_date %}
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-block btn-primary mt-5">Fetch Attendance</button>
+    </form>
+  </div>
+</div>
+{% endblock content %}

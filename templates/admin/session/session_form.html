@@ -1,0 +1,24 @@
+{% extends 'admin/index.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="card card-border shadow rounded mb-4">
+  <div class="my-4 mx-4">
+    <h3 class="text-center mb-5">Add Session Year</h3>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-md-6">
+          {% bootstrap_field form.start_year %}
+        </div>
+
+        <div class="col-md-6">
+          {% bootstrap_field form.end_year %}
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-block btn-primary mt-5">Save</button>
+    </form>
+  </div>
+</div>
+{% endblock content %}

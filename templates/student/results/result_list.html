@@ -1,0 +1,34 @@
+{% extends 'student/index.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="card card-border shadow rounded mb-4">
+  <div class="my-4 mx-4">
+    <h4 class="card-title mb-4">Result</h4>
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Assignment Marks</th>
+            <th>Exam Marks</th>
+            <th>Uploaded at</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for result in object_list %}
+          <tr>
+            <td>{{ result.subject }}</td>
+            <td>{{ result.assignment_marks }}</td>
+            <td>{{ result.exam_marks }}</td>
+            <td>{{ result.created_at }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock content %}

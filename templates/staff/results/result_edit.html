@@ -1,0 +1,81 @@
+{% extends 'staff/index.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div id="error">
+
+</div>
+<div class="card card-border shadow rounded mb-4">
+  <div class="my-4 mx-4">
+    <h3 class="text-center mb-5">Edit Result</h3>
+    <form method="POST">
+      {% csrf_token %}
+      {% bootstrap_field form.subject layout="horizontal" %}
+      {% bootstrap_field form.session layout="horizontal" %}
+      <button id="fetch_students" type="button" class="btn btn-block btn-primary my-5">Fetch Students</button>
+
+      <div id="students_form" class="d-none">
+        {% bootstrap_field form.student %}
+      </div>
+
+      <div id="marks_form" class="d-none">
+        <div class="row">
+          <div class="col-md-6">
+            {% bootstrap_field form.assignment_marks %}
+          </div>
+
+          <div class="col-md-6">
+            {% bootstrap_field form.exam_marks %}
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-block btn-primary mt-5">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock content %}
+
+{% block javascript %}
+<script>
+  $("#fetch_students").click(() => {
+    let subject_id = $("#id_subject").val();
+    let session_id = $("#id_session").val();
+    if (subject_id && session_id) {
+      $.ajax({
+        url: `{% url 'users:list_student' %}?subject=${subject_id}&session=${session_id}`,
+        method: "GET",
+        success(response) {
+          $("#students_form").removeClass("d-none");
+          $("#id_student").html(`<option value>---------</option>`);
+          for (let student of response) {
+            $("#id_student").append(`<option value="${student.id}">${student.first_name} ${student.last_name}</option>`);
+          }
+        }
+      });
+    }
+  });
+
+  $("#id_student").change(() => {
+    let student_id = $("#id_student").val();
+    let subject_id = $("#id_subject").val();
+    if (student_id && subject_id) {
+      $.ajax({
+        url: `{% url 'results:edit' %}?student=${student_id}&subject=${subject_id}`,
+        method: "GET",
+        success(response) {
+          if (response.length) {
+            $("#error").html("");
+            $("#marks_form").removeClass("d-none");
+            $("#id_assignment_marks").val(response[0].assignment_marks);
+            $("#id_exam_marks").val(response[0].exam_marks);
+          } else {
+            $("#marks_form").addClass("d-none");
+            $("#error").html("<div class='alert alert-danger'>No record found</div>");
+          }
+        }
+      })
+    }
+  });
+</script>
+{% endblock javascript %}
