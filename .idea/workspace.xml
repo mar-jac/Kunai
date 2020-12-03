@@ -10,7 +10,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69f2ac59-a716-418e-85b6-987bdb051df8" name="Default Changelist" comment="" />
+    <list default="true" id="69f2ac59-a716-418e-85b6-987bdb051df8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,8 +31,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../Python39" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
     <configuration name="Kunai" type="Python.DjangoServer" factoryName="Django server">
@@ -66,6 +72,8 @@
       <option name="presentableId" value="Default" />
       <updated>1606786243492</updated>
       <workItem from="1606786248365" duration="1010000" />
+      <workItem from="1606873923960" duration="360000" />
+      <workItem from="1606887347181" duration="101000" />
     </task>
     <servers />
   </component>
@@ -97,16 +105,25 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="347" width="943" height="346" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog" timestamp="1606787266486">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="488" y="347" width="943" height="346" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606787266486" />
+    <state x="770" y="403" key="FileChooserDialogImpl" timestamp="1606874251279">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="770" y="403" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606874251279" />
     <state x="808" y="419" key="GitRewordDialog" timestamp="1606786289390">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="808" y="419" key="GitRewordDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606786289390" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1606874255394">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1606874255394" />
     <state x="666" y="229" width="587" height="582" key="find.popup" timestamp="1606787184974">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
