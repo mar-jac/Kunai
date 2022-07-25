@@ -11,31 +11,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69f2ac59-a716-418e-85b6-987bdb051df8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kunai/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kunai/asgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kunai/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kunai/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kunai/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime.txt" beforeDir="false" afterPath="$PROJECT_DIR$/runtime.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="master" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="1l2DMLOr0FDc8cZ3LnISKtYwOCE" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../Python39" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Marlon/Documents/Projects/GitHub/kunai&quot;
+  }
+}</component>
   <component name="RunManager">
     <configuration name="Kunai" type="Python.DjangoServer" factoryName="Django server">
       <module name="Kunai" />
@@ -61,6 +72,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -105,28 +117,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="488" y="347" width="943" height="346" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog" timestamp="1606787266486">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="488" y="347" width="943" height="346" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606787266486" />
-    <state x="770" y="403" key="FileChooserDialogImpl" timestamp="1606874251279">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="770" y="403" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606874251279" />
-    <state x="808" y="419" key="GitRewordDialog" timestamp="1606786289390">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="808" y="419" key="GitRewordDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606786289390" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1606874255394">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1606874255394" />
-    <state x="666" y="229" width="587" height="582" key="find.popup" timestamp="1606787184974">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="666" y="229" width="587" height="582" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606787184974" />
   </component>
 </project>
