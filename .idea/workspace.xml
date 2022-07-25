@@ -10,16 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69f2ac59-a716-418e-85b6-987bdb051df8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kunai/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kunai/asgi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kunai/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kunai/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kunai/wsgi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime.txt" beforeDir="false" afterPath="$PROJECT_DIR$/runtime.txt" afterDir="false" />
-    </list>
+    <list default="true" id="69f2ac59-a716-418e-85b6-987bdb051df8" name="Default Changelist" comment="Updated to python-3.10.5" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,6 +78,21 @@
       <workItem from="1606873923960" duration="360000" />
       <workItem from="1606887347181" duration="101000" />
     </task>
+    <task id="LOCAL-00001" summary="Updated to python-3.10.5">
+      <created>1658772411286</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1658772411286</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Updated to python-3.10.5">
+      <created>1658772554733</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1658772554733</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,5 +123,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updated to python-3.10.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated to python-3.10.5" />
   </component>
 </project>
