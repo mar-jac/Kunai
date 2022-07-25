@@ -10,7 +10,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69f2ac59-a716-418e-85b6-987bdb051df8" name="Default Changelist" comment="Refactoring for middleware for Heroku deployment." />
+    <list default="true" id="69f2ac59-a716-418e-85b6-987bdb051df8" name="Default Changelist" comment="Refactoring for middleware for Heroku deployment.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,10 +37,14 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Marlon/Documents/Projects/GitHub/kunai/attendance/migrations"
+    "last_opened_file_path": "C:/Users/Marlon/Documents/Projects/GitHub/kunai/attendance/migrations",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Marlon\Documents\Projects\GitHub\kunai\attendance\migrations" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Marlon\Documents\Projects\GitHub\kunai\kunai" />
     </key>
@@ -153,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658781826092</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Refactoring for middleware for Heroku deployment.">
+      <created>1658782291139</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1658782291139</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
