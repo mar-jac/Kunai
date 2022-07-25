@@ -94,12 +94,12 @@ DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'heroku-postgresql',
         'NAME': 'kunai',
-        'USER': 'manager',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306'
+        'USER': 'giaexwojolatlv',
+        'PASSWORD': 'bc14ec7dd5669290e65e33c601579e57abdf3e4e5183e5775e8db7dace936769',
+        'HOST': 'postgres://giaexwojolatlv:bc14ec7dd5669290e65e33c601579e57abdf3e4e5183e5775e8db7dace936769@ec2-107-22-122-106.compute-1.amazonaws.com:5432/de9sg0nm8itm9g',
+        'PORT': '5432'
     }
 }
 
