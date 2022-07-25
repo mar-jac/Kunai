@@ -10,7 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69f2ac59-a716-418e-85b6-987bdb051df8" name="Default Changelist" comment="Updated to python-3.10.5" />
+    <list default="true" id="69f2ac59-a716-418e-85b6-987bdb051df8" name="Default Changelist" comment="Refactoring for middleware for Heroku deployment." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +38,11 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Marlon/Documents/Projects/GitHub/kunai&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Marlon\Documents\Projects\GitHub\kunai\kunai" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Kunai" type="Python.DjangoServer" factoryName="Django server">
       <module name="Kunai" />
@@ -92,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658772554733</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Refactoring for middleware for Heroku deployment.">
+      <created>1658773017306</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1658773017306</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,6 +138,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated to python-3.10.5" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated to python-3.10.5" />
+    <MESSAGE value="Refactoring for middleware for Heroku deployment." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring for middleware for Heroku deployment." />
   </component>
 </project>
