@@ -10,6 +10,12 @@ Setting up Kunai is very easy.
 ## Want to Use?
 You can clone this branch and use it right now using any of the methods mentioned below
 
+You can also use the site to login. Here are the details for the admin account:
+
+```
+Username: admin
+Password: <details>1234</details>
+
 ## Building
 
 It is best to use the python `virtualenv` tool to build locally:
