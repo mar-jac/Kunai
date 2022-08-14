@@ -14,9 +14,9 @@ You can also use the site to login. Here are the details for the admininistrator
 
 <details> 
   <summary>Details</summary>
-   \bUsername: admin
+   **Username:** admin
   
-   \bPassword: 1234
+   **Password:** 1234
 </details>
 
 
