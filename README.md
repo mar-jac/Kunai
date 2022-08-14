@@ -12,17 +12,12 @@ You can clone this branch and use it right now using any of the methods mentione
 
 You can also use the site to login. Here are the details for the admininistrator account:
 
-
-```
 <details> 
   <summary>Details</summary>
    Username: admin
    Password: 1234
 </details>
 
-Username: admin
-Password: 1234
-```
 
 ## Building
 
