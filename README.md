@@ -12,6 +12,8 @@ You can clone this branch and use it right now using any of the methods mentione
 
 You can also use the site to login. Here are the details for the admin account:
 
+>! Spoiler text
+
 ```
 Username: admin
 Password: 1234
