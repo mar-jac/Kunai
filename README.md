@@ -14,7 +14,7 @@ You can also use the site to login. Here are the details for the admin account:
 
 ```
 Username: admin
-Password: <details>1234</details>
+Password: >!1234
 ```
 
 ## Building
