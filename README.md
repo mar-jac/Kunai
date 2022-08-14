@@ -5,7 +5,8 @@ This is a school management system that uses
 [Django](https://www.google.com/search?client=opera&q=django+admin&sourceid=opera&ie=UTF-8&oe=UTF-8) to 
 do most of the work of managing students, fee submissions, teacher records etc..
 
-Setting up Easy School is very easy.
+Setting up Kunai is very easy.
+
 ## Want to Use?
 You can clone this branch and use it right now using any of the methods mentioned below
 
@@ -21,7 +22,7 @@ It is best to use the python `virtualenv` tool to build locally:
 Then you navigate to the base directory of the project and install the requirements in your virtual environment
 
 ```bash
-> cd easy-school/easy-school
+> cd kunai/kunai
 > pip install -r requirements.txt
 ```
 And finally you make migrations to the database, create a super user, and run the server
@@ -60,14 +61,15 @@ docker-compose up
 The server should be responding at 127.0.0.1:8000
 
 
-Or you can also set this up in Heroku: https://devcenter.heroku.com/articles/deploying-python
+## Building with Heroku
+[Heroku:](https://devcenter.heroku.com/articles/deploying-python)
+[Configuring Django Apps in Heroku:](https://devcenter.heroku.com/articles/django-app-configuration)
 
 
-## Contributing
+# Contributing
 
 Just follow the steps above to setup your environment.
-Read the [Contribution Guide](CONTRIBUTION.md)
-If you have any more questions you can join the gitter room [![Gitter](https://badges.gitter.im/ZeroCoolHacker/community.svg)](https://gitter.im/ZeroCoolHacker/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 ## To do
 
 - [x] Manage Students Record in admin
