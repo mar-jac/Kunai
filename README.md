@@ -62,9 +62,9 @@ The server should be responding at 127.0.0.1:8000
 
 
 ## Building with Heroku
-[Heroku:](https://devcenter.heroku.com/articles/deploying-python)
+- [Heroku](https://devcenter.heroku.com/articles/deploying-python)
 
-[Configuring Django Apps in Heroku:](https://devcenter.heroku.com/articles/django-app-configuration)
+- [Configuring Django Apps in Heroku](https://devcenter.heroku.com/articles/django-app-configuration)
 
 
 # Contributing
