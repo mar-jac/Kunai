@@ -91,8 +91,8 @@ Just follow the steps above to setup your environment.
 - [x] Search the record by various fields
 - [x] Minimize the number of queries for each view
 - [x] Add Teachers Record to admin
-- [x] Add Teachers Salary Record to admin
-- [x] Export Data in csv format from admin
+- [ ] Add Teachers Salary Record to admin
+- [ ] Export Data in csv format from admin
 - [ ] Add graph comparing teacher salaries given vs student's fee collected
 
 
